@@ -1,0 +1,18 @@
+main: com.icanstudios.teamsplugin.Main
+name: TeamsPlugin
+version: 1.0
+author: me
+api-version: 1.16
+commands:
+    debug:
+        description: run code for debugging
+        usage: /debug
+    join:
+        description: join someone team
+        usage: /join [player]
+    create:
+        description: create a team
+        usage: /create
+    calltoarms:
+        description: ask your friends for help
+        usage: /calltoarms
