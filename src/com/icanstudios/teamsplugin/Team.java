@@ -31,12 +31,12 @@ public class Team {
 	public boolean addPlayer(Player plr) {
 		for(int i = 0; i < members.length; i++) {
 			UUID id = plr.getUniqueId();
-			if(members[i].equals(id)) {
-				return false; // player already exists
-			}
 			if(members[i] == null) {
 				members[i] = id; // 
 				return true; // player successfully added
+			}
+			if(members[i].equals(id)) {
+				return false; // player already exists
 			}
 		}
 		return false; // too many players or there is a bug
@@ -73,7 +73,7 @@ public class Team {
 	public boolean removePlayer(UUID id) {
 		int i = 0;
 		UUID currentId = members[i];
-		while(!currentId.equals(id)) {
+		while(!currentId.equals(id) && i < (members.length - 1)) {
 			i++;
 			currentId = members[i];
 		}
