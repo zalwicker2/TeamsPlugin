@@ -11,9 +11,13 @@ public class Command_JoinPlayerTeam implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if(sender instanceof Player) {
 			Player plr = (Player) sender;
-			Player toJoin = Bukkit.getServer().getPlayer(args[0]);
-			Team joining = Team.getTeamFromPlayer(toJoin);
-			joining.addPlayer(plr);
+			if(args.length == 0) {
+				plr.sendMessage("You're just gonna nothing? Good for you.");
+			} else {
+				Player toJoin = Bukkit.getServer().getPlayer(args[0]);
+				Team joining = Team.getTeamFromPlayer(toJoin);
+				joining.addPlayer(plr);
+			}
 		}
 		return false;
 	}

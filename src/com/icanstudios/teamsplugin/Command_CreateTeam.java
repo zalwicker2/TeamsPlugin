@@ -10,8 +10,20 @@ public class Command_CreateTeam implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if(sender instanceof Player) {
 			Player plr = (Player) sender;
-			Team newTeam = new Team(args[0]);
+			String teamName = "";
+			if(args.length == 0) {
+				plr.sendMessage("give the team a name dumbass");
+				return false;
+			} else {
+				for(int i = 0; i < args.length; i++) {
+					teamName+=args[i]+" ";
+				}
+			}
+			teamName.trim();
+			Team newTeam = new Team(teamName);
 			newTeam.addPlayer(plr);
+			plr.sendMessage("Team " + teamName + " created.");
+			return true;
 		}
 		return false;
 	}
