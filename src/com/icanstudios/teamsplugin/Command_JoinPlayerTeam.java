@@ -13,10 +13,13 @@ public class Command_JoinPlayerTeam implements CommandExecutor {
 			Player plr = (Player) sender;
 			if(args.length == 0) {
 				plr.sendMessage("You're just gonna nothing? Good for you.");
+				return false;
 			} else {
 				Player toJoin = Bukkit.getServer().getPlayer(args[0]);
 				Team joining = Team.getTeamFromPlayer(toJoin);
 				joining.addPlayer(plr);
+				plr.sendMessage("You have joined " + joining.getName() + "!");
+				return true;
 			}
 		}
 		return false;

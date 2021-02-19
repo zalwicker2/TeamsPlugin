@@ -28,6 +28,14 @@ public class Team {
 		teamList.add(this);
 	}
 	
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public boolean addPlayer(Player plr) {
 		for(int i = 0; i < members.length; i++) {
 			UUID id = plr.getUniqueId();
@@ -85,13 +93,13 @@ public class Team {
 	}
 	
 	public Player[] getOnlineMembers() {
-		ArrayList<Player> allPlayers = (ArrayList<Player>) Bukkit.getServer().getOnlinePlayers();
-		for(Player plr : allPlayers) {
-			if(!idInTeam(plr.getUniqueId())) {
-				allPlayers.remove(plr);
+		ArrayList<Player> onlineMembers = new ArrayList<Player>();
+		for(Player plr : Bukkit.getServer().getOnlinePlayers()) {
+			if(idInTeam(plr.getUniqueId())) {
+				onlineMembers.add(plr);
 			}
 		}
-		return (Player[]) allPlayers.toArray();
+		return (Player[]) onlineMembers.toArray();
 	}
 	
 	public boolean idInTeam(UUID id) {
