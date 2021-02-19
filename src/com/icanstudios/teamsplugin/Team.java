@@ -99,7 +99,8 @@ public class Team {
 				onlineMembers.add(plr);
 			}
 		}
-		return (Player[]) onlineMembers.toArray();
+		Player[] players = new Player[onlineMembers.size()];
+		return onlineMembers.toArray(players);
 	}
 	
 	public boolean idInTeam(UUID id) {

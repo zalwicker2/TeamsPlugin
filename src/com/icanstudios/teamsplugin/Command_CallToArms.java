@@ -16,6 +16,7 @@ public class Command_CallToArms implements CommandExecutor {
 				if(plrs.equals(plr)) { continue; }
 				plrs.sendMessage(plr.getDisplayName() + " is dying. Type /answer to help them, you worthless piece of shit.");
 			}
+			return true;
 		}
 		return false;
 	}
