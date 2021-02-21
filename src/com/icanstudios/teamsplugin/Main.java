@@ -12,7 +12,7 @@ public class Main extends JavaPlugin {
 	public void onEnable() {
 		plugin = this;
 		System.out.println("this shitt starting");
-		this.getCommand("debug").setExecutor(new Command_FireworkCircle());
+		this.getCommand("debug").setExecutor(new Command_Debug());
 		this.getCommand("join").setExecutor(new Command_JoinPlayerTeam());
 		this.getCommand("create").setExecutor(new Command_CreateTeam());
 		this.getCommand("calltoarms").setExecutor(new Command_CallToArms());
