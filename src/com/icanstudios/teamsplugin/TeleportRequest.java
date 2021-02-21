@@ -36,7 +36,10 @@ public class TeleportRequest extends BukkitRunnable {
 		}
 		this.sender = sender;
 		this.recipiant = recipiant;
+		
 		activeRequests.put(recipiant, this);
+		sender.sendMessage("Teleport request sent to " + recipiant.getName());
+		recipiant.sendMessage("Teleport request recieved from " + sender.getName());
 		
 		return true;
 	}
