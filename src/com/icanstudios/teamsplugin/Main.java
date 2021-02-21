@@ -33,7 +33,8 @@ public class Main extends JavaPlugin {
 		Player caller = e.getPlayer();
 		Entity clicked = e.getRightClicked();
 		ItemStack item = caller.getInventory().getItemInOffHand();
-		if(item.getType() == Material.SADDLE && clicked instanceof Player) {
+		System.out.println(item.getType().equals(Material.SADDLE) + " " + (clicked instanceof Player));
+		if(item.getType().equals(Material.SADDLE) && clicked instanceof Player) {
 			Player ride = (Player) clicked;
 			ride.addPassenger(caller);
 		}
