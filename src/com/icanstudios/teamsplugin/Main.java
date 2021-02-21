@@ -4,6 +4,7 @@ import org.bukkit.Material;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -28,8 +29,8 @@ public class Main extends JavaPlugin {
 		System.out.println("who the fuck turning me off fuck you buddy");
 	}
 	
-	@EventHandler
-	public void onPlayerInteract(PlayerInteractEntityEvent e) {
+	@EventHandler(priority = EventPriority.HIGHEST)
+	public void onPlayerInteractEntity(PlayerInteractEntityEvent e) {
 		Player caller = e.getPlayer();
 		Entity clicked = e.getRightClicked();
 		ItemStack item = caller.getInventory().getItemInOffHand();
