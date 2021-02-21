@@ -16,3 +16,6 @@ commands:
     calltoarms:
         description: ask your friends for help
         usage: /calltoarms
+    accept:
+        description: accept a teleport request
+        usage: /accept

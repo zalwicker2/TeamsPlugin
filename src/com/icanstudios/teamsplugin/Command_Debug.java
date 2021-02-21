@@ -10,8 +10,12 @@ public class Command_Debug implements CommandExecutor {
 	
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-		for(Player p : Bukkit.getServer().getOnlinePlayers()) {
-			System.out.print(p.getUniqueId().toString() + " ");
+		if(sender instanceof Player) {
+			Player plr = (Player) sender;
+			TeleportRequest req = new TeleportRequest();
+			Player recip = Bukkit.getServer().getPlayer(args[0]);
+			req.sendTeleportRequest(plr, recip);
+			req.runTaskTimer(Main.plugin, 0L, 20L);
 		}
 		return true;
 	}

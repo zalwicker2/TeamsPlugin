@@ -11,7 +11,14 @@ public class Command_Accept implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if(sender instanceof Player) {
 			Player plr = (Player) sender;
-			
+			TeleportRequest activeRequest = TeleportRequest.getActiveTeleportRequestFor(plr);
+			if(activeRequest != null) {
+				activeRequest.acceptTeleport();
+				plr.sendMessage("Teleport accepted. Teleport will commence in 5 seconds.");
+				return true;
+			}
+			plr.sendMessage("Teleport failed. No active request.");
+			return false;
 		}
 		return false;
 	}

@@ -14,7 +14,10 @@ public class Command_CallToArms implements CommandExecutor {
 			Team plrTeam = Team.getTeamFromPlayer(plr);
 			for(Player plrs : plrTeam.getOnlineMembers()) {
 				if(plrs.equals(plr)) { continue; }
-				plrs.sendMessage(plr.getDisplayName() + " is dying. Type /answer to help them, you worthless piece of shit.");
+				plrs.sendMessage(plr.getDisplayName() + " is dying. Type /accept to help them, you worthless piece of shit.");
+				TeleportRequest req = new TeleportRequest();
+				req.sendTeleportRequest(plr, plrs);
+				req.runTaskTimer(Main.plugin, 0L, 20L);
 			}
 			return true;
 		}
