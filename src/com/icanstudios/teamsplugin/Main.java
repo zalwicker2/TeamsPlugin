@@ -5,11 +5,12 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class Main extends JavaPlugin {
+public class Main extends JavaPlugin implements Listener{
 	
 	public static JavaPlugin plugin;
 	
@@ -17,6 +18,7 @@ public class Main extends JavaPlugin {
 	public void onEnable() {
 		plugin = this;
 		System.out.println("this shitt starting");
+		getServer().getPluginManager().registerEvents(this, this);
 		this.getCommand("debug").setExecutor(new Command_Debug());
 		this.getCommand("join").setExecutor(new Command_JoinPlayerTeam());
 		this.getCommand("create").setExecutor(new Command_CreateTeam());
