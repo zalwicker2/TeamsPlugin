@@ -1,4 +1,6 @@
+.externalToolBuilders/
 bin/
 
 .classpath
 .project
+build.xml
