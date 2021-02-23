@@ -89,6 +89,9 @@ public class Team {
 			members[i] = members[i + 1];
 			i++;
 		}
+		if(members.length == 0) {
+			teamList.remove(this);
+		}
 		return true;
 	}
 	
